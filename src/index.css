@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.product .btn-cart {
+    transform: translateY(100%);
+    opacity: 0;
+    transition: 0.5s ;
+}
+.product:hover .btn-cart {
+    transform: translateY(0%);
+    opacity: 1;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+/* .product:hover btn-cart */
