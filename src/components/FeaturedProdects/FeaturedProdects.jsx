@@ -72,11 +72,13 @@ try {
   let { isLoading, isError, data } = useQuery('featuredProducts', getFeaturedProducts, {
     keepPreviousData: true,
   });
+// console.log(data?.data?.data);
+// console.log(data?.data?.data?.brand);
 
   if (isLoading) return <GridLoader color="#0fa215" />;
   if (isError) return <div>Error loading products</div>;
 
-  const filteredProducts = data?.data.data.filter(product =>
+  const filteredProducts = data?.data?.data?.filter(product =>
     product.title.toLowerCase().includes(search.toLowerCase())
   ) || [];
 
@@ -87,8 +89,8 @@ try {
         <div className='container'>
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2'>
             {filteredProducts.length > 0 ? (
-              filteredProducts.map((product) => (
-                <div key={product.id} className='parent-div cursor-pointer hover:border border-cyan-950'>
+              filteredProducts?.map((product,index) => (
+                <div key={index} className='parent-div cursor-pointer hover:border border-cyan-950'>
                   <div className="product py-3 px-2">
                     <Link to={`/productsdetails/${product.id}/${product.category.name}`}>
                       <img className='w-full' src={product.imageCover} alt={product.title} />

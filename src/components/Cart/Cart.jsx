@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom';
 
 export default function Cart() {
   const { cartDetails, removeItem, updataCount } = useContext(CartContext);
-
   return (
     <>
       {cartDetails ? (
@@ -32,16 +31,16 @@ export default function Cart() {
               <div className='col-span-12 md:col-span-9 lg:col-span-10'>
                 <div className='flex justify-between items-center'>
                   <div className=''>
-                    <h5>{product.product.title}</h5>
+                    <h5>{product?.product?.title}</h5>
                     <h6 className='text-green-500'>Price: {product.price} EGP</h6>
                   </div>
                   <div >
-                    <button onClick={() => updataCount(product.product.id, product.count + 1)} className='border border-green-300 px-1 text-xl'>+</button>
+                    <button onClick={() => updataCount(product?.product?.id, product?.count + 1)} className='border border-green-300 px-1 text-xl'>+</button>
                     <span className='mx-2'>{product.count}</span>
-                    <button onClick={() => updataCount(product.product.id, product.count - 1)} className='border border-green-300 px-1 text-xl'>-</button>
+                    <button onClick={() => updataCount(product?.product?.id, product?.count - 1)} className='border border-green-300 px-1 text-xl'>-</button>
                   </div>
                 </div>
-                <button onClick={() => removeItem(product.product.id)} >
+                <button onClick={() => removeItem(product?.product?.id)} >
                   <FaRegTrashAlt className='text-red-700 inline mb-1 ' /> Remove
                 </button>
               </div>
