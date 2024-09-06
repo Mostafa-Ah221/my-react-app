@@ -1,0 +1,8 @@
+.Navbar {}
+@media (max-width: 768px) {
+  .shops {
+    position: relative;
+    bottom: 21rem;
+    left:17rem;
+  }
+}
